@@ -104,6 +104,12 @@ function transformEntry(entry) {
   }
 }
 
+// The Voroforce engine uses 241 subgrids of 216 cells each (52,056 total).
+// Every subgrid index maps to a JSON batch file. Files that don't exist cause
+// parse errors because the Vite dev server returns HTML instead of a 404.
+// We must write all 241 files — batches beyond the fetched data are empty arrays.
+const TOTAL_SUBGRIDS = 241
+
 async function main() {
   console.log('Fetching anime data from AniList...')
   const allEntries = []
@@ -120,15 +126,6 @@ async function main() {
     )
     page++
 
-    if (allEntries.length >= 5000 && !hasNextPage) break
-    if (allEntries.length >= 5000 && hasNextPage) {
-      // Keep fetching to get as many as possible, but cap at a reasonable limit
-      if (allEntries.length >= 10000) {
-        console.log('Reached 10000 entries, stopping.')
-        break
-      }
-    }
-
     // Small delay to avoid rate limiting
     await new Promise((r) => setTimeout(r, 700))
   }
@@ -144,16 +141,23 @@ async function main() {
     writeFileSync(path, '') // clear before overwriting
   }
 
-  // Split into batches and write
-  const totalBatches = Math.ceil(allEntries.length / BATCH_SIZE)
+  // Split into batches and write all subgrid files.
+  // Batches beyond the fetched data are written as empty arrays so the
+  // engine can load them without hitting a 404 / HTML parse error.
+  const totalBatches = Math.max(
+    TOTAL_SUBGRIDS,
+    Math.ceil(allEntries.length / BATCH_SIZE),
+  )
   for (let i = 0; i < totalBatches; i++) {
     const batch = allEntries.slice(i * BATCH_SIZE, (i + 1) * BATCH_SIZE)
     const filePath = join(JSON_DIR, `${i}.json`)
     writeFileSync(filePath, JSON.stringify(batch))
-    console.log(`Wrote ${filePath} (${batch.length} entries)`)
   }
 
-  console.log(`\nDone! Wrote ${totalBatches} batch files to ${JSON_DIR}`)
+  const populatedBatches = Math.ceil(allEntries.length / BATCH_SIZE)
+  console.log(
+    `\nDone! Wrote ${totalBatches} batch files to ${JSON_DIR} (${populatedBatches} with data, ${totalBatches - populatedBatches} empty)`,
+  )
 }
 
 main().catch((err) => {
