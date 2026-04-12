@@ -56,14 +56,9 @@ const items = [
         </p>
         <br />
         <p>
-          The dataset is made available under the{' '}
-          <Link href='http://opendatacommons.org/licenses/by/1.0/'>
-            Open Data Commons Attribution License
-          </Link>{' '}
-          and is sourced from{' '}
-          <Link href='https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies/data'>
-            Kaggle's TMDB Movies Dataset
-          </Link>
+          The dataset is sourced from the AniList public GraphQL API (
+          <Link href='https://anilist.co'>anilist.co</Link>) under their
+          standard API terms of use.
         </p>
         <br />
         <p>
@@ -81,22 +76,14 @@ const items = [
     content: (
       <>
         <p>
-          The silver screen's heyday is arguably behind us. Luckily, we have
-          over a hundred years of cinema to fall back on.
+          Decades of anime and counting. With thousands of titles across every
+          genre imaginable, the only real problem is deciding where to start.
         </p>
         <br />
         <p>
-          This gallery features a collection of the 50,000 most <i>popular*</i>{' '}
-          movies according to <Link href={config.tmdbUrl}>TMDB</Link>, with data
-          current as of early 2025. The movies are sorted by popularity in
-          descending order, starting from the center of the grid and moving
-          outward.
-        </p>
-        <br />
-        <p>
-          <small>
-            <i>*Not to be confused with the highest rated movies</i>
-          </small>
+          This gallery features a collection of anime titles sourced from{' '}
+          <Link href={config.anilistUrl}>AniList</Link>, sorted by popularity
+          and visualized as an interactive Voronoi diagram.
         </p>
       </>
     ),

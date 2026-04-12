@@ -26,7 +26,6 @@ import { Switch } from '../../../../ui/switch'
 
 enum Property {
   Title = 'title',
-  ImdbId = 'imdbId',
   TmdbId = 'tmdbId',
 }
 
@@ -144,9 +143,8 @@ export function AddCustomLinkModal() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value='title'>Movie Title</SelectItem>
-                      <SelectItem value='tmdbId'>TMDB ID</SelectItem>
-                      <SelectItem value='imdbId'>IMDB ID</SelectItem>
+                      <SelectItem value='title'>Anime Title</SelectItem>
+                      <SelectItem value='tmdbId'>AniList ID</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormItem>

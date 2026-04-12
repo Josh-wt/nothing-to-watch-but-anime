@@ -101,7 +101,6 @@ export const FilmView = ({
                     <div className='absolute top-0 right-0 flex flex-row-reverse items-center gap-3'>
                       <FilmRatingGauge value={film.rating} />
                       <div className='hidden text-xxs leading-none md:not-landscape:block lg:hidden xl:block'>
-                        TMDB <br />
                         Score
                       </div>
                     </div>
@@ -119,6 +118,18 @@ export const FilmView = ({
                           {genre}
                         </Badge>
                       ))}
+                    </div>
+                    <div className='flex flex-row flex-wrap gap-2 text-foreground/60 text-sm'>
+                      {film.studio && <span>{film.studio}</span>}
+                      {film.format && <span>· {film.format}</span>}
+                      {film.season && film.year ? (
+                        <span>
+                          · {film.season} {film.year}
+                        </span>
+                      ) : null}
+                      {film.episodes ? (
+                        <span>· {film.episodes} eps</span>
+                      ) : null}
                     </div>
                   </div>
                 </div>

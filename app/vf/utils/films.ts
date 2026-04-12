@@ -16,6 +16,10 @@ export class Film {
   popularity: number
   poster: string
   backdrop: string
+  studio?: string
+  format?: string
+  season?: string
+  episodes?: number | null
 
   constructor(data: FilmData) {
     this.tmdbId = Number(data.id)
@@ -29,6 +33,10 @@ export class Film {
     this.popularity = Number(data.popularity)
     this.poster = String(data.poster_path)
     this.backdrop = String(data.backdrop_path)
+    this.studio = data.studio ? String(data.studio) : undefined
+    this.format = data.format ? String(data.format) : undefined
+    this.season = data.season ? String(data.season) : undefined
+    this.episodes = data.episodes ? Number(data.episodes) : null
   }
 }
 
