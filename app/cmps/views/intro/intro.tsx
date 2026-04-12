@@ -75,7 +75,7 @@ export const Intro = () => {
             }}
           >
             <DeviceClassWidget />
-            <MoviesDatasetLicenseInfo />
+            <AnimeDatasetLicenseInfo />
           </FadeTransition>
           <FadeTransition
             visible={hasDeviceClass && !preset}
@@ -89,7 +89,7 @@ export const Intro = () => {
               submitLabel='Continue'
               submitVisibility='always'
             />
-            <MoviesDatasetLicenseInfo />
+            <AnimeDatasetLicenseInfo />
           </FadeTransition>
         </div>
       </div>
@@ -97,10 +97,9 @@ export const Intro = () => {
   )
 }
 
-const MoviesDatasetLicenseInfo = () => (
+const AnimeDatasetLicenseInfo = () => (
   <span className='inline-flex text-xxs text-zinc-600 leading-none dark:text-zinc-300'>
-    Contains information from Kaggle's "Full TMDB Movies Dataset" which is made
-    available under the ODC Attribution License.
+    Anime data sourced from AniList (anilist.co) via their public GraphQL API.
   </span>
 )
 

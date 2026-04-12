@@ -17,7 +17,7 @@ export type CustomLink = {
   name: string
   baseUrl: string
   slug: boolean
-  property: 'title' | 'tmdbId' | 'imdbId'
+  property: 'title' | 'tmdbId'
 }
 
 export type UserConfig = {

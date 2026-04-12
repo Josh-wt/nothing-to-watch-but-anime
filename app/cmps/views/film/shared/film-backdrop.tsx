@@ -1,9 +1,10 @@
+import config from '@/config'
 import type { Film } from '@/vf/utils'
 
 export const FilmBackdrop = ({ film }: { film: Film }) => {
   return (
     <img
-      src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${film.backdrop}`}
+      src={`${config.backdropBaseUrl}${film.backdrop}`}
       alt=''
       className='h-auto w-full'
     />
