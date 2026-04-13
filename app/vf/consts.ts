@@ -71,36 +71,36 @@ export const PRESET_ITEMS: PresetItems = [
 ]
 
 export enum CELL_LIMIT {
-  xxs = 5000,
-  xs = 10000,
-  sm = 25000,
-  md = 50000,
-  lg = 100000,
+  xxs = 2500,
+  xs = 5000,
+  sm = 10000,
+  md = 20000,
+  lg = 50000,
 }
 
 export const CELL_LIMIT_ITEMS = [
   {
     value: CELL_LIMIT.xxs,
-    label: '5,000',
+    label: '2,500',
   },
   {
     value: CELL_LIMIT.xs,
-    label: '10,000',
+    label: '5,000',
     recommendedDeviceClass: DEVICE_CLASS.low,
   },
   {
     value: CELL_LIMIT.sm,
-    label: '25,000',
+    label: '10,000',
     recommendedDeviceClass: DEVICE_CLASS.low,
   },
   {
     value: CELL_LIMIT.md,
-    label: '50,000',
+    label: '20,000',
     recommendedDeviceClass: DEVICE_CLASS.mid,
   },
   {
     value: CELL_LIMIT.lg,
-    label: '100,000',
+    label: '50,000',
     recommendedDeviceClass: DEVICE_CLASS.high,
     doNotRecommend: true,
   },

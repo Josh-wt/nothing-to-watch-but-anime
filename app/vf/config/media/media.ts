@@ -19,7 +19,7 @@ const mediaConfig = {
       width: 1980,
       height: 1980,
       layers:
-        Number.parseInt(import.meta.env.VITE_MEDIA_VERSION_1_LAYERS) ?? 10,
+        Number.parseInt(import.meta.env.VITE_MEDIA_VERSION_1_LAYERS) ?? 4,
       layerSrcFormat: '/mid/{EXT}/{INDEX}.{EXT}',
       type: 'compressed-grid',
     },
@@ -29,7 +29,7 @@ const mediaConfig = {
       width: 1980,
       height: 1980,
       layers:
-        Number.parseInt(import.meta.env.VITE_MEDIA_VERSION_2_LAYERS) ?? 241,
+        Number.parseInt(import.meta.env.VITE_MEDIA_VERSION_2_LAYERS) ?? 93,
       layerSrcFormat: '/high/{EXT}/{INDEX}.{EXT}',
       type: 'compressed-grid',
     },
@@ -48,7 +48,7 @@ export const uncompressedSingleMediaVersionConfig = {
   width: 1980,
   height: 1980,
 
-  layers: 50000, // real layer count for 50000/54: 925.9 = 926
+  layers: 20000, // one layer per anime entry
   virtualLayers: 50,
   layerIndexStart: 0,
   layerSrcFormat: '/single/{INDEX}.jpg',

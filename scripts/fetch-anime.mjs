@@ -104,11 +104,12 @@ function transformEntry(entry) {
   }
 }
 
-// The Voroforce engine uses 241 subgrids of 216 cells each (52,056 total).
+// The Voroforce engine uses subgrids of 216 cells each. With ~20k anime entries
+// that's ~93 subgrids (18 cols × 12 rows × 93 layers = 20,088 cells).
 // Every subgrid index maps to a JSON batch file. Files that don't exist cause
 // parse errors because the Vite dev server returns HTML instead of a 404.
-// We must write all 241 files — batches beyond the fetched data are empty arrays.
-const TOTAL_SUBGRIDS = 241
+// We must write all subgrid files — batches beyond the fetched data are empty arrays.
+const TOTAL_SUBGRIDS = 93
 
 async function main() {
   console.log('Fetching anime data from AniList...')
